@@ -1,0 +1,69 @@
+===============================================================================
+
+Nume si prenume:      RUSU ALINA-NICOLETA 
+Grupa:                311CC
+Tema:                 Tema 3, Programarea Calculatoarelor
+Tema proiectului:     Tetris
+Versiunea de compilator: gcc (Ubuntu 4.4.3-4ubuntu5) 4.4.3
+Dependente externe:
+
+===============================================================================
+
+A) Detalii de implementare, bonusuri implementate:
+
+Meniul contine patru componente si pot fi accesate la apasarea tastei Enter: 
+Start Game 
+Hight Score ( memoreaza numele jucatorului si cel mai bun scor )
+Set Starting Level ( se poate introduce nivelul cu care se doreste inceperea jocului )
+Exit
+
+La Start Game va porni jocul. Pentru a juca sunt necesare urmatoarele taste :
+
+Sageata sus / 'R' - roteste figura
+Sageata jos / 'S' - grabeste caderea figurei
+Sageata dreapta / 'A' - muta figura la dreapta 
+Sageata stanga / 'D' - muta figura la stanga
+Tasta 'N' - lasa figura pe loc
+Tasta 'P' - se pune pauza
+Tasta 'space' - interschimba figura actuala su cea care urmeaza
+Tasta 'q' - iese din joc
+
+Odata cu acumularea de puncte, creste nivelul, dificultatea nivelului constand in viteza mai mare de cadere a vitezei pieselor.
+
+La terminarea jocului sau apasarea tastei 'q' se cere introducerea numelui pentru memorarea scorului si afisarea acestuia in cazul in care este cel mai mare de pana acum daca jucatorul selecteaza Hight Score din meniu.
+
+Pe ecran, in timpul jocului sunt afisate:
+-tabla de tetris propriu-zisă;
+-un panou de control în dreapta acesteia în care să fie afişate diferite informaţii precum:
+	--data şi ora curente;
+	--nivelul curent;
+	--numărul de puncte acumulate până în prezent;
+	--de cât timp rulează jocul curent (în ore, minute şi secunde măsurate de la New Game);
+	--forma piesei care va cădea în continuarea piesei curente.
+
+
+Principalele functii sunt : 
+
+void genelem(fig *f)	- genreeaza o figura
+void combined(ecran *ec, fig *f, int *sc, int *level) - pastreaza figura in block
+void swap(int *a, int *b) - interschimba 2 valori
+int isalive(ecran *ec, fig *f) - testeaza daca poate fi pusa o figura
+void putecran(ecran *ec) - afisheaza ecranul
+void rotate(ecran *ec, fig *f) - roteste figura
+int depl(ecran *ec, int incx, int incy, fig *f) - deplaseaza o figura
+void combined(ecran *ec, fig *f, int *sc, int *level) - combina figura cu ecranul 
+
+Bonusuri:
+
+-High Scores (salvare într-un fişier text/binar pe care îl includ în arhivă);
+-Pause Game la apăsarea tastei "P";
+-Swap intre piesle jocului (le interschimba);
+-Oprirea unei piese intr-un loc dorit pe ecran la apasarea tastei "n";                                    
+
+===============================================================================
+
+B) Cum se ruleaza? 
+
+make 
+cd bin
+./Tetris
